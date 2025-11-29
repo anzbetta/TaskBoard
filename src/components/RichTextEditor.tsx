@@ -11,7 +11,7 @@ interface RichTextEditorProps {
   editable?: boolean;
 }
 
-export function RichTextEditor({ value, onChange, placeholder, editable = true }: RichTextEditorProps) {
+export function RichTextEditor({ value, onChange, editable = true }: RichTextEditorProps) {
   const initialContent = useMemo(() => {
     if (!value) return undefined;
     try {
@@ -30,7 +30,6 @@ export function RichTextEditor({ value, onChange, placeholder, editable = true }
   const editor = useMemo(() => {
     return BlockNoteEditor.create({
       initialContent,
-      placeholderText: placeholder || 'Start typing...',
     });
   }, []);
 
@@ -47,7 +46,6 @@ export function RichTextEditor({ value, onChange, placeholder, editable = true }
         editable={editable}
         onChange={handleChange}
         theme="dark"
-        data-theming-css-variables-demo
       />
     </div>
   );
