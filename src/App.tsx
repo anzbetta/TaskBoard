@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { TaskProvider } from './context/TaskContext';
 import { Navbar } from './components/Navbar';

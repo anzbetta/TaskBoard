@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { BlockNoteEditor, PartialBlock } from '@blocknote/core';
 import { BlockNoteView } from '@blocknote/react';
 import '@blocknote/core/fonts/inter.css';
@@ -30,7 +30,7 @@ export function RichTextEditor({ value, onChange, placeholder, editable = true }
   const editor = useMemo(() => {
     return BlockNoteEditor.create({
       initialContent,
-      defaultStyles: true,
+      placeholderText: placeholder || 'Start typing...',
     });
   }, []);
 
@@ -49,10 +49,6 @@ export function RichTextEditor({ value, onChange, placeholder, editable = true }
         theme="dark"
         data-theming-css-variables-demo
       />
-      {!value && editable && (
-        <div className="editor-placeholder-hint">
-        </div>
-      )}
     </div>
   );
 }
